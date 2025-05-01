@@ -9,7 +9,15 @@ import {
 } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
+
 const Header = () => {
+  // Function to close offcanvas
+  const closeOffcanvas = () => {
+    const offcanvasElement = document.getElementById('offcanvasNavbar');
+    const bsOffcanvas = Offcanvas.getInstance(offcanvasElement);
+    bsOffcanvas?.hide();
+  };
+
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
@@ -87,32 +95,32 @@ const Header = () => {
             <div className="offcanvas-body">
               <ul className="navbar-nav text-start">
                 <li className="nav-item">
-                  <Link className="nav-link" to="/">
+                  <Link className="nav-link" to="/" onClick={closeOffcanvas}>
                     <FaHome className="me-2" /> Home
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/destinations">
+                  <Link className="nav-link" to="/destinations" onClick={closeOffcanvas}>
                     <FaMapMarkedAlt className="me-2" /> Destinations
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/packages">
+                  <Link className="nav-link" to="/packages" onClick={closeOffcanvas}>
                     <FaBoxOpen className="me-2" /> Packages
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/about">
+                  <Link className="nav-link" to="/about" onClick={closeOffcanvas}>
                     <FaInfoCircle className="me-2" /> About
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/contact">
+                  <Link className="nav-link" to="/contact" onClick={closeOffcanvas}>
                     <FaPhoneAlt className="me-2" /> Contact
                   </Link>
                 </li>
                 <li className="nav-item mt-3">
-                  <Link className="btn btn-primary w-100" to="#book">
+                  <Link className="btn btn-primary w-100" to="#book" onClick={closeOffcanvas}>
                     <FaPlaneDeparture className="me-2" /> Book Now
                   </Link>
                 </li>
